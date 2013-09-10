@@ -7,9 +7,14 @@ html {
 body {
   margin: 0;
   padding: 0;
-  font: .625em Georgia, Serif;
+  font: .825em Georgia, Serif;
   background-color: #E8DDCB;
   color: #363636;
+}
+
+.container {
+  margin: 0 auto;
+  width: 960px;
 }
 
 #page {
