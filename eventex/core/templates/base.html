@@ -1,0 +1,20 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>EventeX</title>
+    <link type="text/css" href="{{ STATIC_URL }}css/style.css" rel="stylesheet" media="screen" />
+</head>
+<body>
+    <div id="page">
+        <div id="header">
+           <img src="{{ STATIC_URL }}img/logo.png" />
+        </div>
+        <hr>
+        <div id="content">
+            {% block content %}
+            {% endblock content %}
+        </div>
+    </div>
+</body>
+</html>
+

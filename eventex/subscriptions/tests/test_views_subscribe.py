@@ -31,3 +31,4 @@ class SubscribeTest(TestCase):
         form = self.resp.context['form']
         self.assertIsInstance(form, SubscriptionForm)
 
+
