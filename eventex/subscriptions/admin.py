@@ -5,25 +5,16 @@ from django.contrib import admin
 from eventex.subscriptions.models import Subscription
 
 class SubscriptionAdmin(admin.ModelAdmin):
-    list_display = ('name', 'email', 'cpf', 'phone', 'created_at', 'subscribed_today', 'subscription_date', 'today_date')
+    list_display = ('name', 'email', 'cpf', 'phone', 'created_at', 'subscribed_today', 'paid')
     date_hierarchy = 'created_at'
     search_fields = ('name', 'cpf', 'email', 'phone', 'created_at')
     list_filter = ['created_at']
 
     def subscribed_today(self, obj):
-        return obj.created_at.date() == datetime.today().date()
+        return obj.created_at.date() == datetime.utcnow().date()
 
     subscribed_today.short_description = _(u'Inscrito hoje?')
     subscribed_today.boolean = True
-
-    def subscription_date(self, obj):
-        return obj.created_at.date()
-
-    subscription_date.short_description = _(u'Data Inscrição')
-    def today_date(self, obj):
-        return datetime.today().date()
-
-    today_date.short_description = _(u'Hoje')
 
 admin.site.register(Subscription, SubscriptionAdmin)
 
