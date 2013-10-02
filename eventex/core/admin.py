@@ -2,7 +2,7 @@
 from django.contrib import admin
 from eventex.core.models import Speaker, Contact
 
-class ContactInLine(admin.TabularInline):
+class ContactInline(admin.TabularInline):
     model = Contact
     extra = 1
 
