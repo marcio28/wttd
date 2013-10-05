@@ -31,23 +31,19 @@ class ContactModelTest(TestCase):
         self.assertRaises(ValidationError, contact.full_clean)
 
     def test_email(self):
-        contact = Contact.objects.create(speaker=self.speaker, kind='E',
-                                         value='henrique@bastos.net')
+        contact = Contact.objects.create(speaker=self.speaker, kind='E', value='henrique@bastos.net')
         self.assertEqual(1, contact.pk)         
 
     def test_phone(self):
-        contact = Contact.objects.create(speaker=self.speaker, kind='P',
-                                         value='21-96186180')
+        contact = Contact.objects.create(speaker=self.speaker, kind='P', value='21-96186180')
         self.assertEqual(1, contact.pk)
 
     def test_fax(self):
-        contact = Contact.objects.create(speaker=self.speaker, kind='F',
-                                         value='21-12345678')
+        contact = Contact.objects.create(speaker=self.speaker, kind='F', value='21-12345678')
         self.assertEqual(1, contact.pk)
 
     def test_unicode(self):
         'Contact string representation should be value'
-        contact = Contact(speaker=self.speaker, kind='E',
-                          value='henrique@bastos.net')
+        contact = Contact(speaker=self.speaker, kind='E', value='henrique@bastos.net')
         self.assertEqual(u'henrique@bastos.net', unicode(contact))
 
