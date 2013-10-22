@@ -126,6 +126,7 @@ INSTALLED_APPS = (
     'south',
     'eventex.core',
     'eventex.subscriptions',
+    'eventex.myauth',
 )
 
 # A sample logging configuration. The only tangible logging
@@ -169,4 +170,9 @@ LOGGING = {
 # True: Sim. (default()
 # False: Não! Use o Syncdb
 SOUTH_TESTS_MIGRATE = False
+
+AUTHENTICATION_BACKENDS = (
+    'eventex.myauth.backends.EmailBackend',
+    'django.contrib.auth.backends.ModelBackend',
+)
 
