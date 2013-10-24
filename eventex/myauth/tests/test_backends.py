@@ -28,6 +28,7 @@ class EmailBackendTest(TestCase):
 
     def test_get_user(self):
         self.assertIsNotNone(self.backend.get_user(1))
+
 class MultipleEmailTest(TestCase):
     def setUp(self):
         UserModel = get_user_model()
