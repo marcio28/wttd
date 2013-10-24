@@ -3,7 +3,7 @@ from django.contrib.auth.models import AbstractBaseUser, BaseUserManager
 from django.db import models
 
 class UserManager(BaseUserManager):
-    def create_user(self, cpf, name=None, password=None):
+    def create_user(self, cpf, name=None, password=None,):
         user = self.model(cpf=cpf, name=name)
         user.set_password(password)
         user.save(using=self._db)
