@@ -9,7 +9,7 @@ class UserManager(BaseUserManager):
         user.save(using=self._db)
         return user
     
-    def create_superuser(self, cpf, name, password):
+    def create_superuser(self, cpf, name=None, password=None):
         return self.create_user(cpf, name, password)
 
 class User(AbstractBaseUser):
@@ -19,4 +19,20 @@ class User(AbstractBaseUser):
     USERNAME_FIELD = 'cpf'
 
     objects = UserManager()
+
+    @property
+    def is_staff(self):
+        return True
+
+    def has_module_perms(self, app_label):
+        return True
+
+    def has_perm(self, perm, obj=None):
+        return True
+
+    def get_short_name(self):
+        return self.name
+    
+    def get_full_name(self):
+        return self.name
 
